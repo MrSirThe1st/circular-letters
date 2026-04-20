@@ -6,9 +6,29 @@ export interface Sermon {
   date: string;
   content: unknown; // Lexical JSON
   audioUrl: string | null;
+  tts: SermonTts | null;
   status: 'draft' | 'published';
   createdAt: string;
   updatedAt: string;
+}
+
+export interface CharacterAlignment {
+  characters: string[];
+  characterStartTimesSeconds: number[];
+  characterEndTimesSeconds: number[];
+}
+
+export interface SermonTts {
+  audioUrl: string;
+  audioBucket: string;
+  audioPath: string;
+  voiceId: string;
+  modelId: string;
+  outputFormat: string;
+  alignment: CharacterAlignment | null;
+  normalizedAlignment: CharacterAlignment | null;
+  durationSeconds: number | null;
+  generatedAt: string;
 }
 
 export interface Audio {

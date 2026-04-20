@@ -8,9 +8,14 @@ Digital library for church sermons (text + audio).
    - `apps/mobile/.env.local` (mobile app)
    - `apps/web-admin/.env.local` (admin dashboard)
 2. Install dependencies: `pnpm install`
-3. Run dev: `pnpm dev:mobile` or `pnpm dev:admin`
+3. Seed admin web users in `apps/web-admin/.env.local` via `ADMIN_SEED_USERS`, then run `pnpm --filter web-admin seed:admins`
+4. Run dev: `pnpm dev:mobile` or `pnpm dev:admin`
 
 **Note:** `.env.local` files are already created. Just add your Supabase URL and publishable key.
+Do not set `NODE_ENV` inside `.env.local`; Next.js expects that value to come from the runtime command.
+Audio upload uses Supabase Storage and defaults to the bucket `sermon-audio` unless `SUPABASE_AUDIO_BUCKET` is set.
+
+Web admin auth is sign-in only. Admin accounts are pre-created through the seed command and are not self-registered from the UI.
 
 ## Supabase
 

@@ -10,5 +10,8 @@
     "web": "expo start --web",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "5.8.2"
   }
 }
